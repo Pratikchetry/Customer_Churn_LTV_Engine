@@ -182,7 +182,7 @@ README.md
 Run the complete pipeline locally in **five commands**.
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/Customer_Churn_LTV_Engine.git
+git clone https://github.com/Pratikchetry/Customer_Churn_LTV_Engine.git
 cd Customer_Churn_LTV_Engine
 python -m venv venv
 source venv/bin/activate
