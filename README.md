@@ -325,6 +325,7 @@ These insights informed the **composite risk scoring approach used for segmentat
 # 👤 Author
 
 **Pratik Chetry**
+**Email ID:chetrypratik2002@gmail.com**
 
 This project demonstrates practical experience in:
 
