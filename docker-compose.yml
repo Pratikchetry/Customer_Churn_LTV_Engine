@@ -1,0 +1,42 @@
+services:
+
+  api:
+    build:
+      context    : .
+      dockerfile : docker/Dockerfile.api
+    container_name: churn_ltv_api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./models:/app/models
+      - ./data:/app/data
+    environment:
+      - PYTHONPATH=/app/src
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+    networks:
+      - churn_network
+
+  app:
+    build:
+      context    : .
+      dockerfile : docker/Dockerfile.app
+    container_name: churn_ltv_app
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./models:/app/models
+      - ./data:/app/data
+    environment:
+      - PYTHONPATH=/app/src
+      - PYTHONUNBUFFERED=1
+      - API_BASE=http://api:8000
+    depends_on:
+      - api
+    restart: unless-stopped
+    networks:
+      - churn_network
+
+networks:
+  churn_network:
+    driver: bridge
